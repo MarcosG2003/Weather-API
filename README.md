@@ -3,35 +3,38 @@
 This is a weather api, used to pull data from visual crossing.
 
 Built to practice:
-
+- FastAPI endpoint design
+- Working with API keys 
+- Redis caching with a configurable TTL
 
 
 ## 🚀 Usage
 
-*Show off what your software looks like in action! Try to limit it to one-liners if possible and don't delve into API specifics.*
+Run the server locally:
 
-```py
->>> import mypackage
->>> mypackage.do_stuff()
-'Oh yeah!'
+```bash
+uvicorn app.main:app --reload
 ```
+You can use the built in swagger ui by just adding a /docs to the end of the url
+http://127.0.0.1:8000/docs
+
 
 
 ## ⬇️ Installation
 
-Simple, understandable installation instructions!
+To install the dependencies:
+make sure you have the virtual enviornment activated
 
 ```bash
-pip install my-package
+python -m venv .venv
+source .venv/bin/activate
 ```
 
-And be sure to specify any other minimum requirements like Python versions or operating systems.
-
-*You may be inclined to add development instructions here, don't.*
-
-
-## 💭 Feedback and Contributing
-
-Add a link to the Discussions tab in your repo and invite users to open issues for bugs/feature requests.
-
-This is also a great place to invite others to contribute in any ways that make sense for your project. Point people to your DEVELOPMENT and/or CONTRIBUTING guides if you have them.
+Dependencies:
+```bash
+pip install -r requirements.txt
+```
+For the .env include:
+- VISUAL_CROSSING_API_KEY=your_api_key_here
+- REDIS_URL=redis://localhost:6379/0
+- CACHE_SECONDS=3600
